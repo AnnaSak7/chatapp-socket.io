@@ -17,6 +17,11 @@ const PORT = 5050;
 io.on("connection", (socket) => {
   console.log("a user connected");
 
+  // listen for message from client
+  socket.on("send_message", (data) => {
+    console.log(data);
+  });
+
   socket.on * "disconnect",
     () => {
       console.log("user disconnected");
