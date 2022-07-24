@@ -20,6 +20,9 @@ io.on("connection", (socket) => {
   // listen for message from client
   socket.on("send_message", (data) => {
     console.log(data);
+
+    // send message to all clients
+    io.emit("received_message", data);
   });
 
   socket.on * "disconnect",
