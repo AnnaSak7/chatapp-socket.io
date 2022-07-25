@@ -1,3 +1,4 @@
+import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 
@@ -6,9 +7,9 @@ import { useState } from "react";
 
 const socket = io("http://localhost:5050");
 
-export default function Home() {
+const Home: NextPage = () => {
   const [message, setMessage] = useState("");
-  const [list, setList] = useState([]);
+  const [list, setList]: any = useState([]);
 
   const handleSubmit = () => {
     // send message to server
@@ -48,7 +49,7 @@ export default function Home() {
             Submit
           </button>
         </div>
-        {list.map((chat) => (
+        {list.map((chat: any) => (
           <div
             className="bg-cyan-500 shadow-lg shadow-cyan-500/50 rounded-md mb-3 box-s px-5 py-3"
             key={chat.message}
@@ -59,4 +60,6 @@ export default function Home() {
       </div>
     </div>
   );
-}
+};
+
+export default Home;
